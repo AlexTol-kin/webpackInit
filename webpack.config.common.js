@@ -7,6 +7,7 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: "./index.ts",
+  devtool: "inline-source-map",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
