@@ -3,7 +3,7 @@ import "./index.scss";
 
 const root = document.querySelector("#app");
 
-function renderItem(item, index) {
+function renderWeather(item) {
   const divWindow = document.createElement("div");
   divWindow.classList.add("diwWindow");
 
@@ -24,15 +24,9 @@ function renderItem(item, index) {
     myAudio.volume = Number(range.value) / 100;
   });
 
-  // let volumes = Number(target.value);
-  // console.log(volumes);
-
-  // console.log(target.value);
-  // isAudio.volume = volumes;
-
   button.appendChild(myAudio);
   divWindow.appendChild(button);
   root.append(divWindow);
 }
 
-data.forEach(renderItem);
+data.forEach(renderWeather);
