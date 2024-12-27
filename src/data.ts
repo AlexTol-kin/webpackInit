@@ -32,24 +32,22 @@ export default [
   },
 ];
 
-HTMLAudioElement.prototype.stop = function () {
-  this.pause();
-  this.currentTime = 0.0;
-};
 const divCheck = document.getElementById("app");
 
-let prevAudio = null;
-let value = "";
-let flagSound = false;
+let prevAudio: HTMLAudioElement = null;
+let value: string = "";
+let flagSound: boolean = false;
 
-divCheck.addEventListener("click", ({ target }) => {
-  const isAudio = target.querySelector("audio");
-  if (target.value) {
+divCheck.addEventListener("click", (event: Event) => {
+  const target: HTMLButtonElement = event.target as HTMLButtonElement;
+  const isAudio: HTMLAudioElement = target.querySelector("audio");
+  if ((target as HTMLButtonElement).value) {
     return;
   }
   if (value !== target.classList.value && value !== "") {
     flagSound = false;
-    prevAudio.stop();
+    prevAudio.pause();
+    prevAudio.currentTime = 0.0;
     value = target.classList.value;
     prevAudio = isAudio;
     isAudio.play();
